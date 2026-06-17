@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jaime Huaiquillán – CV Online</title>
+
+    <!-- Bootstrap 5 CSS (solo CSS, sin JS) -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+            rel="stylesheet"
+    />
+    <!-- Hoja de Estilos CSS Local -->
+    <link
+            href="./static/estilos.css"
+            rel="stylesheet"
+            type="text/css"
+    />
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#hero">
+            <span class="text-primary">Jaime</span> Huaiquillán
+        </a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navMenu"
+                aria-controls="navMenu"
+                aria-expanded="false"
+                aria-label="Abrir menú"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto gap-lg-2">
+                <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contactame">Contáctame</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ══════════════ HERO (CON FOTO DE PERFIL) ══════════════ -->
+<section id="hero">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <!-- Columna de Información -->
+            <div class="col-lg-8 order-2 order-lg-1">
+          <span class="badge-rol mb-3 d-inline-block">
+            <i class="bi bi-briefcase me-1"></i> Técnico en Administración de Empresas
+          </span>
+                <h1 class="mb-3">
+                    Jaime Andrés<br />
+                    <span style="opacity:0.85;">Huaiquillán Caniuqueo</span>
+                </h1>
+                <p class="lead mb-4">
+                    Técnico en Administración de Empresas con 7 años de experiencia en los sectores público y privado. Especialista en planear, ejecutar, controlar y evaluar la gestión empresarial, garantizando el cumplimiento de políticas y normas organizacionales[cite: 1].
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#contactame" class="btn btn-light text-primary fw-semibold px-4">
+                        <i class="bi bi-envelope-fill me-2"></i>Contáctame
+                    </a>
+                    <a href="#experiencia" class="btn btn-outline-light px-4">
+                        Ver experiencia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna de la Fotografía -->
+            <div class="col-lg-4 order-1 order-lg-2 text-center">
+                <div class="d-inline-block position-relative p-2 bg-white bg-opacity-10 rounded-circle shadow">
+                    <img
+                            src="./fotojaime.jpeg"
+                            alt="Fotografía profesional de Jaime Huaiquillán"
+                            class="img-fluid rounded-circle border border-4 border-white shadow-sm"
+                            style="width: 280px; height: 280px; object-fit: cover;"
+                    />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════ SOBRE MÍ ══════════════ -->
+<section id="sobre-mi">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Sobre mí</h2>
+            <hr class="section-divider mx-auto mt-2" />
+        </div>
+
+        <div class="row g-5 align-items-start">
+
+            <div class="col-lg-6">
+                <p class="text-secondary fs-5 mb-3">
+                    Soy <strong>Técnico en Administración de Empresas</strong> titulado de <strong>INACAP</strong>[cite: 1], enfocado en optimizar las relaciones de trabajo y asegurar el desarrollo integral de las funciones operativas de acuerdo con los estándares institucionales[cite: 1].
+                </p>
+                <p class="text-secondary">
+                    Mi trayectoria abarca desde el análisis de bases de datos financieros y de riesgo[cite: 1], hasta el control administrativo gubernamental en el <strong>Ministerio del Interior</strong>[cite: 1], pasando por la atención especializada a clientes y cajero en la banca selecta de <strong>Banco Santander</strong> y retail automotriz en <strong>Yamaha Import</strong>[cite: 1].
+                </p>
+                <p class="text-secondary mb-0">
+                    Me destaco por mi alta capacidad de aprendizaje y coordinación[cite: 1]. Soy una persona responsible, proactiva y con una excelente orientación a logros, facilitando el manejo de relaciones interpersonales eficientes tanto con clientes internos como externos[cite: 1].
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <h5 class="fw-bold mb-3">Educación y Cursos</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent d-flex align-items-center gap-3 px-0">
+                        <i class="bi bi-patch-check-fill icono-cert"></i>
+                        <div>
+                            <div class="fw-semibold">Técnico en Administración de Empresas</div>
+                            <small class="text-muted">INACAP (2012 - 2014)[cite: 1]</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item bg-transparent d-flex align-items-center gap-3 px-0">
+                        <i class="bi bi-patch-check-fill icono-cert"></i>
+                        <div>
+                            <div class="fw-semibold">Curso de Subcontratación</div>
+                            <small class="text-muted">Colegio Nacional de Contadores de Chile A.G.[cite: 1]</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item bg-transparent d-flex align-items-center gap-3 px-0">
+                        <i class="bi bi-patch-check-fill icono-cert"></i>
+                        <div>
+                            <div class="fw-semibold">Curso Prevención de Riesgos</div>
+                            <small class="text-muted">Asociación Chilena de Seguridad (ACHS)[cite: 1]</small>
+                        </div>
+                    </li>
+                </ul>
+
+                <h5 class="fw-bold mt-4 mb-3">Herramientas y Competencias</h5>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-primary">Gestión de Empresas[cite: 1]</span>
+                    <span class="badge bg-primary">Manejo SAP[cite: 1]</span>
+                    <span class="badge bg-primary">Análisis de Bases de Datos[cite: 1]</span>
+                    <span class="badge bg-secondary">Microsoft Office[cite: 1]</span>
+                    <span class="badge bg-secondary">Sistemas Operativos (Windows / MAC)[cite: 1]</span>
+                    <span class="badge bg-success">Cierre Telefónico[cite: 1]</span>
+                    <span class="badge bg-success">Cuadratura de Caja[cite: 1]</span>
+                    <span class="badge bg-warning text-dark">Contact Center / Mesas de Servicio[cite: 1]</span>
+                    <span class="badge bg-info text-dark">Control Documental[cite: 1]</span>
+                    <span class="badge bg-info text-dark">Capacidad de Adaptación[cite: 1]</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════ EXPERIENCIA ══════════════ -->
+<section id="experiencia">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Experiencia Laboral</h2>
+            <hr class="section-divider mx-auto mt-2" />
+        </div>
+
+        <div class="row g-4">
+
+            <!-- YAMAHA -->
+            <div class="col-md-6">
+                <div class="card card-exp h-100 p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap gap-2">
+                        <h5 class="fw-bold mb-0">Cajero / Atención Presencial</h5>
+                        <span class="badge bg-primary">Feb 2017 – Nov 2019[cite: 1]</span>
+                    </div>
+                    <p class="text-muted small mb-2">
+                        <i class="bi bi-building me-1"></i> Yamaha Import[cite: 1]
+                    </p>
+                    <p class="text-secondary mb-0 small">
+                        Atención presencial a clientes en compras con Facturas y Boletas[cite: 1]. Manejo de sistema SAP, resolución oportuna de requerimientos, cuadratura de caja diaria, depósitos bancarios y control de documentación para homologación de motocicletas[cite: 1].
+                    </p>
+                </div>
+            </div>
+
+            <!-- BANCO SANTANDER -->
+            <div class="col-md-6">
+                <div class="card card-exp h-100 p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap gap-2">
+                        <h5 class="fw-bold mb-0">Atención a Clientes / Cajero</h5>
+                        <span class="badge bg-primary">Dic 2015 – Nov 2016[cite: 1]</span>
+                    </div>
+                    <p class="text-muted small mb-2">
+                        <i class="bi bi-building me-1"></i> Banco Santander Chile[cite: 1]
+                    </p>
+                    <p class="text-secondary mb-0 small">
+                        Atención presencial a clientes Banca Select y soporte telefónico[cite: 1]. Gestión de requerimientos, control y manejo de reclamos, control de moras, así como cuadratura de tarjetas, cuentas corrientes y líneas de crédito[cite: 1].
+                    </p>
+                </div>
+            </div>
+
+            <!-- MINISTERIO DEL INTERIOR -->
+            <div class="col-md-6">
+                <div class="card card-exp h-100 p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap gap-2">
+                        <h5 class="fw-bold mb-0">Administrativo Control Visas</h5>
+                        <span class="badge bg-success">Mayo 2014 – Julio 2015[cite: 1]</span>
+                    </div>
+                    <p class="text-muted small mb-2">
+                        <i class="bi bi-building me-1"></i> Ministerio del Interior[cite: 1]
+                    </p>
+                    <p class="text-secondary mb-0 small">
+                        Desarrollo de actividades de la unidad y análisis de nuevos métodos de trabajo[cite: 1]. Elaboración de proyectos de compromiso para el funcionamiento del control de visas; análisis y autorización de permisos laborales según evaluación de casos[cite: 1].
+                    </p>
+                </div>
+            </div>
+
+            <!-- CAJA 18 -->
+            <div class="col-md-6">
+                <div class="card card-exp h-100 p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap gap-2">
+                        <h5 class="fw-bold mb-0">Analista de Riesgo</h5>
+                        <span class="badge bg-secondary">Ago 2013 – Abr 2014[cite: 1]</span>
+                    </div>
+                    <p class="text-muted small mb-2">
+                        <i class="bi bi-building me-1"></i> Caja de Compensación 18 de Septiembre[cite: 1]
+                    </p>
+                    <p class="text-secondary mb-0 small">
+                        Análisis profundo de bases de datos y realización de cálculos técnicos y matemáticos necesarios para la emisión de informes financieros[cite: 1]. Asesoría experta sobre consultas de competencia del área[cite: 1].
+                    </p>
+                </div>
+            </div>
+
+            <!-- PULLMAN BUS -->
+            <div class="col-md-6">
+                <div class="card card-exp h-100 p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-2 flex-wrap gap-2">
+                        <h5 class="fw-bold mb-0">Ejecutivo de Atenciòn al Cliente</h5>
+                        <span class="badge bg-secondary">Nov 2009 – Julio 2013[cite: 1]</span>
+                    </div>
+                    <p class="text-muted small mb-2">
+                        <i class="bi bi-building me-1"></i> Pullman Bus[cite: 1]
+                    </p>
+                    <p class="text-secondary mb-0 small">
+                        Fidelización y atención multicanal (presencial y telefónica)[cite: 1]. Resolución de incidencias y derivación eficiente según necesidades corporativas[cite: 1]. Elaboración de comunicados con lenguaje claro y estructurado[cite: 1].
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════ CONTÁCTAME ══════════════ -->
+<section id="contactame">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Contáctame</h2>
+            <hr class="section-divider mx-auto mt-2" style="background-color:#fff;" />
+            <p class="lead mt-3" style="opacity:0.9; max-width:520px; margin:0 auto;">
+                ¿Tienes un proyecto, una vacante o una colaboración en mente?
+                Escríbeme, estoy disponible.
+            </p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-sm-6 col-md-4">
+                <div class="card-contacto">
+                    <i class="bi bi-envelope-fill"></i>
+                    <div class="fw-semibold mb-1">Correo Electrónico</div>
+                    <a href="mailto:Jaime.huaiquillan@gmail.com">
+                        Jaime.huaiquillan@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="card-contacto">
+                    <i class="bi bi-linkedin"></i>
+                    <div class="fw-semibold mb-1">LinkedIn</div>
+                    <a href="https://www.linkedin.com/in/jaime-huaiquillan-caniuqueo-5a447abb/" target="_blank" rel="noopener">
+                        Ver perfil profesional
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="card-contacto">
+                    <i class="bi bi-github"></i>
+                    <div class="fw-semibold mb-1">GitHub</div>
+                    <a href="https://github.com/jaimehuaiquillan-png/t1000" target="_blank" rel="noopener">
+                        Ver Repositorio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <span>© 2026 Jaime Andrés Huaiquillán Caniuqueo · Todos los derechos reservados.</span>
+        <span class="d-flex gap-3 fs-5">
+        <a href="mailto:Jaime.huaiquillan@gmail.com" class="text-secondary" title="Correo">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jaime-huaiquillan-caniuqueo-5a447abb/" target="_blank" rel="noopener" class="text-secondary" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/jaimehuaiquillan-png/t1000" target="_blank" rel="noopener" class="text-secondary" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+      </span>
+    </div>
+</footer>
+</body>
+</html>

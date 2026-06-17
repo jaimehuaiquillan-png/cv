@@ -1,0 +1,157 @@
+:root {
+    /* Variables en modo claro */
+    --bg-principal: #ffffff;
+    --bg-secundario: #f8f9fa;
+    --texto-principal: #212529;
+    --texto-secundario: #6c757d;
+    --borde-color: rgba(0, 0, 0, 0.125);
+
+    /* Variables específicas para las tarjetas de contacto */
+    --bg-contacto: rgba(255, 255, 255, 0.15);
+    --borde-contacto: rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode {
+    /* Variables en modo oscuro */
+    --bg-principal: #121212;
+    --bg-secundario: #1e1e1e;
+    --texto-principal: #f8f9fa;
+    --texto-secundario: #adb5bd;
+    --borde-color: rgba(250, 250, 250, 0.1);
+
+    /* Suavizado para las tarjetas de contacto en modo oscuro */
+    --bg-contacto: rgba(30, 30, 30, 0.6);
+    --borde-contacto: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── HERO ── */
+#hero {
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 100px 0 80px;
+}
+#hero .badge-rol {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+#hero h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+#hero .lead {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 650px;
+}
+
+/* Vincualción con tu nueva clase '.card-info-hero' */
+.card-info-hero {
+    background-color: var(--bg-principal) !important;
+    color: var(--texto-principal) !important;
+    border: 1px solid var(--borde-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.card-info-hero .border-bottom {
+    border-color: var(--borde-color) !important;
+}
+
+/* Control de tus nuevas clases de texto */
+.fw-title, .section-subtitle, .card-title-custom {
+    color: var(--texto-principal) !important;
+}
+.text-card-muted, .custom-text {
+    color: var(--texto-secundario) !important;
+    transition: color 0.3s ease;
+}
+
+/* ── SOBRE MÍ ── */
+#sobre-mi {
+    background-color: var(--bg-secundario);
+    padding: 80px 0;
+    transition: background-color 0.3s ease;
+}
+/* Tu nueva clase para las listas de Inacap y Colegio */
+.list-item-custom {
+    color: var(--texto-principal) !important;
+    border-color: var(--borde-color) !important;
+}
+
+/* ── EXPERIENCIA ── */
+#experiencia {
+    background-color: var(--bg-principal);
+    padding: 80px 0;
+    transition: background-color 0.3s ease;
+}
+.card-exp {
+    border: 1px solid var(--borde-color) !important;
+    border-left: 4px solid #0d6efd !important;
+    border-radius: 0;
+    background-color: var(--bg-secundario) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ── CONTÁCTAME ── */
+#contactame {
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 80px 0;
+}
+#contactame a {
+    text-decoration: none;
+}
+#contactame a:hover {
+    text-decoration: underline;
+}
+#contactame .card-contacto {
+    background-color: var(--bg-contacto);
+    border: 1px solid var(--borde-contacto);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+#contactame .card-contacto i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* ── FOOTER ── */
+footer {
+    background-color: #212529;
+    color: #adb5bd;
+    padding: 28px 0;
+    font-size: 0.875rem;
+}
+
+/* ── Utilidades de sección ── */
+.section-title {
+    font-weight: 700;
+    font-size: 1.9rem;
+    margin-bottom: 0.4rem;
+}
+.section-divider {
+    width: 50px;
+    height: 4px;
+    background-color: #2dfd0d;
+    border: none;
+    border-radius: 2px;
+}
+
+/* Estilo de apoyo para el botón del Navbar */
+#theme-toggle:focus {
+    box-shadow: none;
+}
