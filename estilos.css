@@ -1,88 +1,102 @@
 :root {
-    /* Variables en modo claro */
+    /* ── PALETA DE COLORES CYBERPUNK POR DEFECTO (MODO OSCURO) ── */
+    --bg-principal: #0b0b0f;       /* Fondo negro profundo (image_9fe946.png) */
+    --bg-secundario: #111217;      /* Cajas y secciones oscuras */
+    --texto-principal: #ffffff;    /* Texto blanco de lectura */
+    --texto-secundario: #a0a5b5;   /* Texto gris de soporte */
+    --borde-color: rgba(243, 236, 25, 0.15); /* Bordes amarillos sutiles para tarjetas */
+
+    /* Colores acento de la interfaz hacker */
+    --cyber-amarillo: #f3ec19;     /* Amarillo brillante de títulos */
+    --cyber-fucsia: #e60067;       /* Fucsia eléctrico de badges y líneas */
+
+    /* Configuración de tarjetas de contacto superiores */
+    --bg-contacto: rgba(17, 18, 23, 0.8);
+    --borde-contacto: var(--cyber-amarillo);
+}
+
+/* ── ALTERNATIVA: MODO CLARO CONFIGURADO ── */
+.light-mode {
     --bg-principal: #ffffff;
     --bg-secundario: #f8f9fa;
     --texto-principal: #212529;
     --texto-secundario: #6c757d;
     --borde-color: rgba(0, 0, 0, 0.125);
-
-    /* Variables específicas para las tarjetas de contacto */
+    --cyber-amarillo: #0d6efd;     /* En modo claro toma una estética azul corporativa */
+    --cyber-fucsia: #212529;
     --bg-contacto: rgba(255, 255, 255, 0.15);
-    --borde-contacto: rgba(255, 255, 255, 0.3);
+    --borde-contacto: rgba(0, 0, 0, 0.15);
 }
 
-.dark-mode {
-    /* Variables en modo oscuro */
-    --bg-principal: #121212;
-    --bg-secundario: #1e1e1e;
-    --texto-principal: #f8f9fa;
-    --texto-secundario: #adb5bd;
-    --borde-color: rgba(250, 250, 250, 0.1);
-
-    /* Suavizado para las tarjetas de contacto en modo oscuro */
-    --bg-contacto: rgba(30, 30, 30, 0.6);
-    --borde-contacto: rgba(255, 255, 255, 0.1);
-}
-
+/* ── BASE DEL BODY ── */
 body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     background-color: var(--bg-principal);
     color: var(--texto-principal);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* ── HERO ── */
+/* ── HERO / BANNER PRINCIPAL ── */
 #hero {
-    background-color: #0d6efd;
-    color: #ffffff;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
     padding: 100px 0 80px;
+    border-bottom: 2px solid var(--cyber-fucsia); /* Divisor fucsia estilo terminal */
 }
 #hero .badge-rol {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background-color: var(--cyber-fucsia);
+    color: #ffffff;
     font-size: 0.85rem;
+    font-weight: bold;
     letter-spacing: 0.05em;
     padding: 6px 14px;
-    border-radius: 50px;
+    border-radius: 4px; /* Bordes más rectos estilo código */
+    text-transform: uppercase;
 }
 #hero h1 {
     font-size: clamp(2rem, 5vw, 3.4rem);
     font-weight: 700;
     line-height: 1.2;
+    color: var(--texto-principal);
+}
+/* Forzar palabras clave en Amarillo como el diseño de referencia */
+#hero h1 strong, #hero h1 span {
+    color: var(--cyber-amarillo) !important;
 }
 #hero .lead {
     font-size: 1.1rem;
-    opacity: 0.9;
+    color: var(--texto-secundario);
     max-width: 650px;
+    border-left: 3px solid var(--cyber-fucsia); /* Línea fucsia vertical junto al párrafo */
+    padding-left: 15px;
 }
 
-/* Vincualción con tu nueva clase '.card-info-hero' */
+/* Tarjeta lateral de datos dentro del hero */
 .card-info-hero {
-    background-color: var(--bg-principal) !important;
+    background-color: var(--bg-secundario) !important;
     color: var(--texto-principal) !important;
-    border: 1px solid var(--borde-color);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--borde-color) !important;
+    box-shadow: 0 0 15px rgba(243, 236, 25, 0.03);
+    transition: all 0.3s ease;
 }
 .card-info-hero .border-bottom {
     border-color: var(--borde-color) !important;
 }
 
-/* Control de tus nuevas clases de texto */
+/* Clases de texto personalizadas */
 .fw-title, .section-subtitle, .card-title-custom {
-    color: var(--texto-principal) !important;
+    color: var(--cyber-amarillo) !important;
 }
 .text-card-muted, .custom-text {
     color: var(--texto-secundario) !important;
-    transition: color 0.3s ease;
 }
 
 /* ── SOBRE MÍ ── */
 #sobre-mi {
     background-color: var(--bg-secundario);
     padding: 80px 0;
-    transition: background-color 0.3s ease;
+    border-bottom: 1px solid var(--borde-color);
 }
-/* Tu nueva clase para las listas de Inacap y Colegio */
 .list-item-custom {
     color: var(--texto-principal) !important;
     border-color: var(--borde-color) !important;
@@ -92,21 +106,26 @@ body {
 #experiencia {
     background-color: var(--bg-principal);
     padding: 80px 0;
-    transition: background-color 0.3s ease;
 }
 .card-exp {
     border: 1px solid var(--borde-color) !important;
-    border-left: 4px solid #0d6efd !important;
-    border-radius: 0;
+    border-left: 4px solid var(--cyber-amarillo) !important; /* Detalle amarillo lateral hacker */
     background-color: var(--bg-secundario) !important;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    color: var(--texto-principal) !important;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+.card-exp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(243, 236, 25, 0.1);
 }
 
 /* ── CONTÁCTAME ── */
 #contactame {
-    background-color: #0d6efd;
-    color: #ffffff;
+    background-color: var(--bg-secundario);
+    color: var(--texto-principal);
     padding: 80px 0;
+    border-top: 2px solid var(--cyber-fucsia);
 }
 #contactame a {
     text-decoration: none;
@@ -117,41 +136,73 @@ body {
 #contactame .card-contacto {
     background-color: var(--bg-contacto);
     border: 1px solid var(--borde-contacto);
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 24px;
     text-align: center;
-    color: #fff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    color: var(--texto-principal);
+    transition: all 0.3s ease;
 }
 #contactame .card-contacto i {
     font-size: 2rem;
+    color: var(--cyber-amarillo);
     margin-bottom: 10px;
     display: block;
 }
 
-/* ── FOOTER ── */
+/* ── FOOTER / EOF SISTEMA DETENIDO ── */
 footer {
-    background-color: #212529;
-    color: #adb5bd;
-    padding: 28px 0;
+    background-color: #050508;
+    color: var(--texto-secundario);
+    padding: 35px 0;
     font-size: 0.875rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+footer .footer-title {
+    color: var(--cyber-amarillo) !important;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
 }
 
-/* ── Utilidades de sección ── */
+/* ── UTILIDADES DE SECCIÓN ── */
 .section-title {
     font-weight: 700;
     font-size: 1.9rem;
     margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    font-family: monospace;
+    letter-spacing: -0.03em;
+    color: var(--cyber-amarillo) !important;
 }
 .section-divider {
-    width: 50px;
+    width: 60px;
     height: 4px;
-    background-color: #2dfd0d;
+    background-color: var(--cyber-fucsia) !important;
     border: none;
-    border-radius: 2px;
+    border-radius: 0px;
 }
 
-/* Estilo de apoyo para el botón del Navbar */
+/* ── BOTÓN DE ACCIÓN (CONTACTAR / VER STACK) ── */
+.btn-cyber-primary {
+    background-color: var(--cyber-amarillo) !important;
+    color: #000000 !important;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: none;
+    text-transform: uppercase;
+}
+.btn-cyber-outline {
+    background-color: transparent !important;
+    color: var(--texto-principal) !important;
+    border: 1px solid var(--texto-principal) !important;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+/* Soporte para el switch del Navbar */
 #theme-toggle:focus {
     box-shadow: none;
 }
