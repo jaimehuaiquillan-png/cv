@@ -1,29 +1,21 @@
-/* ==========================================================================
-   1. VARIABLES DE DISEÑO (¡VUELVEN LOS COLORES NEÓN Y FLÚOR!)
-   ========================================================================== */
+
 :root {
-    /* MODO OSCURO CYBERPUNK (Por defecto) */
     --bg-principal: #0b0b0f;
     --bg-secundario: #111217;
     --texto-principal: #ffffff;
     --texto-secundario: #a0a5b5;
     --borde-color: rgba(243, 236, 25, 0.15);
-
-    /* Colores acento Cyber ORIGINALES */
     --cyber-amarillo: #f3ec19;
     --cyber-fucsia: #e60067;
     --sombra-neon: rgba(230, 0, 103, 0.25);
 }
 
-/* MODO CLARO CORPORATIVO (Activado mediante JS) */
 body.light-mode {
     --bg-principal: #ffffff;
     --bg-secundario: #f8f9fa;
     --texto-principal: #212529;
     --texto-secundario: #6c757d;
     --borde-color: rgba(0, 0, 0, 0.125);
-
-    /* En modo claro, la estética pasa a ser azul/negro corporativo */
     --cyber-amarillo: #0d6efd;
     --cyber-fucsia: #212529;
     --sombra-neon: rgba(13, 110, 253, 0.1);
@@ -32,27 +24,31 @@ body.light-mode {
 /* ==========================================================================
    2. ESTILOS BASE Y GENERALES
    ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', system-ui, sans-serif;
     background-color: var(--bg-principal);
     color: var(--texto-principal);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
 .container {
-    width: 90%;
+    width: 92%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
 }
 
-/* Navbar / Menú Superior */
+/* NAVBAR TOTALMENTE RESPONSIVA (CORREGIDA PARA CELULAR) */
 header {
     background-color: var(--bg-secundario);
-    border-bottom: 2px solid var(--cyber-fucsia); /* Línea fucsia superior */
+    border-bottom: 2px solid var(--cyber-fucsia);
     position: fixed;
     width: 100%;
     top: 0;
@@ -61,151 +57,160 @@ header {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* En celular se apila vertical de forma ordenada */
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 0;
+    gap: 8px;
+}
+
+@media (min-width: 576px) {
+    .nav-container {
+        flex-direction: row; /* En pantallas medianas o PC vuelve a estar de lado */
+        justify-content: space-between;
+        padding: 15px 0;
+    }
 }
 
 .logo {
     font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--texto-principal);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 12px;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Evita que se monte el texto en pantallas muy chicas */
 }
 
 .nav-links a {
     color: var(--texto-principal);
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.2s;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
 .nav-links a:hover {
     color: var(--cyber-amarillo);
 }
 
-/* Utilidades de títulos comunes */
+/* Títulos */
 .section-title {
     font-weight: 700;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     margin-bottom: 0.4rem;
     text-transform: uppercase;
     font-family: monospace;
-    letter-spacing: -0.03em;
-    color: var(--cyber-amarillo); /* Letras amarillas flúor */
+    color: var(--cyber-amarillo);
 }
 
 .section-divider {
     width: 60px;
     height: 4px;
-    background-color: var(--cyber-fucsia); /* Línea fucsia de separación */
-    border: none;
+    background-color: var(--cyber-fucsia);
     margin-bottom: 30px;
+    border: none;
 }
 
-.fw-title, .section-subtitle, .card-title-custom {
-    color: var(--cyber-amarillo);
-}
-
-.text-card-muted, .custom-text {
-    color: var(--texto-secundario);
-}
+.fw-title, .card-title-custom { color: var(--cyber-amarillo); }
+.text-card-muted { color: var(--texto-secundario); }
 
 /* ==========================================================================
-   3. HERO / BANNER PRINCIPAL (FOTO REDONDA + TEXTO ALINEADO)
+   3. HERO / BANNER PRINCIPAL
    ========================================================================== */
 #hero {
-    background-color: var(--bg-principal);
-    color: var(--texto-principal);
-    padding: 160px 0 80px;
+    padding: 160px 0 50px; /* Más espacio superior para que no tape la nueva navbar */
     border-bottom: 2px solid var(--cyber-fucsia);
-    transition: all 0.3s ease;
 }
 
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
 }
 
-@media (min-width: 768px) {
-    .hero-grid {
-        grid-template-columns: 2fr 1fr;
+@media (min-width: 992px) {
+    .hero-grid { grid-template-columns: 2fr 1fr; }
+}
+
+.hero-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    .hero-main-content {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
     }
 }
 
-/* Contenedor flexible para que la foto y el texto convivan perfectamente */
-.hero-main-content {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    flex-wrap: nowrap; /* Evita que se desarme de golpe */
-}
-
-/* ¡LA FOTO AHORA SÍ QUEDA PERFECTAMENTE REDONDA! */
+/* FOTO REDONDA CON RESPLANDOR NEÓN */
 .hero-avatar {
-    width: 150px;
-    height: 150px;
-    min-width: 150px; /* Evita que el navegador la achique o estire */
-    min-height: 150px;
-    border-radius: 50%; /* Esto la hace redonda */
-    object-fit: cover;   /* Centra y encuadra tu rostro de forma impecable */
-    border: 4px solid var(--cyber-amarillo); /* Borde amarillo neón */
-    box-shadow: 0 0 15px var(--cyber-amarillo); /* Brillo flúor de fondo */
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+    min-height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--cyber-amarillo);
+    box-shadow: 0 0 15px var(--cyber-amarillo);
 }
 
-.hero-text {
-    flex: 1;
-}
+.hero-text { flex: 1; width: 100%; }
 
 #hero .badge-rol {
     background-color: var(--cyber-fucsia);
     color: #ffffff;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: bold;
-    letter-spacing: 0.05em;
-    padding: 6px 14px;
+    padding: 6px 12px;
     border-radius: 4px;
     text-transform: uppercase;
     display: inline-block;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 #hero h1 {
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    font-weight: 700;
+    font-size: 1.9rem;
     line-height: 1.2;
-    color: var(--texto-principal);
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
 }
+@media (min-width: 768px) { #hero h1 { font-size: 2.8rem; } }
 
-#hero h1 span {
-    color: var(--cyber-amarillo);
-}
+#hero h1 span { color: var(--cyber-amarillo); }
 
 #hero .lead {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--texto-secundario);
-    max-width: 650px;
     border-left: 3px solid var(--cyber-fucsia);
-    padding-left: 15px;
-    margin-bottom: 30px;
+    padding-left: 12px;
+    margin-bottom: 25px;
+    text-align: left;
 }
 
-/* Tarjeta lateral de datos rápidos */
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+@media (min-width: 576px) { .hero-buttons { justify-content: flex-start; } }
+
+/* Tarjetas de Datos Rapidos */
 .card-info-hero {
     background-color: var(--bg-secundario);
-    color: var(--texto-principal);
     border: 1px solid var(--borde-color);
     border-radius: 6px;
     padding: 20px;
-    box-shadow: 0 0 15px rgba(243, 236, 25, 0.02);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -217,249 +222,152 @@ header {
     gap: 15px;
     padding-bottom: 12px;
 }
-
-.info-hero-item:not(:last-child) {
-    border-bottom: 1px solid var(--borde-color);
-}
-
-.info-hero-item i {
-    color: var(--cyber-amarillo);
-    font-size: 1.2rem;
-}
+.info-hero-item:not(:last-child) { border-bottom: 1px solid var(--borde-color); }
+.info-hero-item i { color: var(--cyber-amarillo); font-size: 1.1rem; }
 
 /* ==========================================================================
-   4. SOBRE MÍ / ACADEMIA
+   4. SOBRE MÍ Y EXPERIENCIA
    ========================================================================== */
-#sobre-mi {
-    background-color: var(--bg-secundario);
-    padding: 80px 0;
-    border-bottom: 1px solid var(--borde-color);
-}
+#sobre-mi, #experiencia { padding: 60px 0; }
+#sobre-mi { background-color: var(--bg-secundario); }
+#experiencia { background-color: var(--bg-principal); }
 
-.sobre-mi-grid {
+.sobre-mi-grid, .exp-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
 }
-
 @media (min-width: 768px) {
-    .sobre-mi-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+    .sobre-mi-grid, .exp-grid { grid-template-columns: 1fr 1fr; }
 }
 
 .list-item-custom {
     background-color: var(--bg-principal);
     padding: 15px;
     border-radius: 6px;
-    color: var(--texto-principal);
     border: 1px solid var(--borde-color);
     margin-bottom: 15px;
 }
 
-/* Tags de Habilidades estilizadas */
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 15px;
-}
-
+.skills-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
 .skill-badge {
-    background-color: transparent;
-    color: var(--texto-principal);
     border: 1px solid var(--cyber-fucsia);
-    font-size: 0.8rem;
-    padding: 5px 12px;
+    color: var(--texto-principal);
+    font-size: 0.75rem;
+    padding: 4px 10px;
     border-radius: 4px;
     font-weight: 600;
-    transition: all 0.2s;
 }
 
-.skill-badge:hover {
-    background-color: var(--cyber-fucsia);
-    color: #ffffff;
-    box-shadow: 0 0 10px var(--cyber-fucsia);
-}
-
-/* ==========================================================================
-   5. EXPERIENCIA LABORAL (TARJETAS FLOTANTES CYBER)
-   ========================================================================== */
-#experiencia {
-    background-color: var(--bg-principal);
-    padding: 80px 0;
-}
-
-.exp-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-@media (min-width: 768px) {
-    .exp-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
+/* Tarjetas laborales */
 .card-exp {
     border: 1px solid var(--borde-color);
-    border-left: 4px solid var(--cyber-amarillo); /* Borde flúor lateral */
+    border-left: 4px solid var(--cyber-amarillo);
     background-color: var(--bg-secundario);
-    color: var(--texto-principal);
+    padding: 20px;
     border-radius: 4px;
-    padding: 24px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-exp:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 15px var(--sombra-neon);
 }
 
 .card-exp-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
     margin-bottom: 10px;
+}
+@media (min-width: 480px) {
+    .card-exp-header { flex-direction: row; justify-content: space-between; align-items: flex-start; }
 }
 
 .exp-date {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: bold;
-    background-color: rgba(230, 0, 103, 0.15);
-    color: var(--cyber-fucsia);
-    padding: 4px 10px;
-    border-radius: 4px;
     border: 1px solid var(--cyber-fucsia);
+    color: var(--cyber-fucsia);
+    padding: 3px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
 }
 
 /* ==========================================================================
-   6. CONTÁCTAME
+   5. CONTÁCTAME Y MAPA RESPONSIVO
    ========================================================================== */
 #contactame {
     background-color: var(--bg-secundario);
-    color: var(--texto-principal);
-    padding: 80px 0;
+    padding: 60px 0;
     border-top: 2px solid var(--cyber-fucsia);
-    text-align: center;
+}
+
+.contenedor-mapa {
+    margin: 25px auto;
+    width: 100%;
+    max-width: 800px;
+    border: 2px solid var(--cyber-fucsia);
+    box-shadow: 0 0 15px var(--sombra-neon);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 250px;
+}
+@media (min-width: 768px) {
+    .contenedor-mapa { height: 350px; }
+}
+.contenedor-mapa iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .contacto-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 40px;
+    gap: 15px;
+    margin-top: 30px;
 }
-
 @media (min-width: 768px) {
-    .contacto-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .contacto-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-#contactame a {
-    text-decoration: none;
-}
+#contactame a { text-decoration: none; width: 100%; }
 
 .card-contacto {
     background-color: var(--bg-principal);
     border: 1px solid var(--cyber-amarillo);
     border-radius: 8px;
-    padding: 24px;
+    padding: 20px;
     text-align: center;
     color: var(--texto-principal);
-    transition: all 0.3s ease;
+    transition: transform 0.2s;
+    width: 100%;
 }
-
-.card-contacto i {
-    font-size: 2rem;
-    color: var(--cyber-amarillo);
-    margin-bottom: 10px;
-    display: block;
-}
-
-.card-contacto:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 15px var(--cyber-amarillo);
-    background-color: rgba(243, 236, 25, 0.05);
-}
+.card-contacto:hover { transform: translateY(-3px); box-shadow: 0 0 10px var(--cyber-amarillo); }
+.card-contacto i { font-size: 1.8rem; color: var(--cyber-amarillo); margin-bottom: 8px; }
 
 /* ==========================================================================
-   7. FOOTER
+   6. FOOTER Y BOTONES
    ========================================================================== */
 footer {
     background-color: #050508;
     color: var(--texto-secundario);
-    padding: 35px 0;
-    font-size: 0.875rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-body.light-mode footer {
-    background-color: #111217;
-    color: #ffffff;
-}
-
-footer .footer-title {
-    color: var(--cyber-amarillo);
-    font-weight: bold;
-    font-family: monospace;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-/* ==========================================================================
-   8. BOTONES DE ACCIÓN CYBER
-   ========================================================================== */
-.btn-cyber-primary {
-    background-color: var(--cyber-amarillo);
-    color: #000000;
-    font-weight: bold;
-    border-radius: 4px;
-    padding: 12px 24px;
-    border: none;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 4px 10px rgba(243, 236, 25, 0.2);
-}
-
-.btn-cyber-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px var(--cyber-amarillo);
-}
-
-body.light-mode .btn-cyber-primary {
-    color: #ffffff;
-}
-
-.btn-cyber-outline {
-    background-color: transparent;
-    color: var(--texto-principal);
-    border: 1px solid var(--cyber-fucsia);
-    border-radius: 4px;
-    padding: 12px 24px;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-cyber-outline:hover {
-    background-color: var(--cyber-fucsia);
-    color: white;
-    box-shadow: 0 0 15px var(--cyber-fucsia);
-    transform: translateY(-2px);
-}
-
-#theme-toggle {
-    padding: 6px 12px;
+    padding: 30px 0;
     font-size: 0.85rem;
+    text-align: center;
 }
+footer .footer-title { color: var(--cyber-amarillo); font-weight: bold; font-size: 1.1rem; }
+
+.btn-cyber-primary, .btn-cyber-outline {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%; /* Ocupan todo el ancho disponible en móvil */
+}
+@media (min-width: 480px) {
+    .btn-cyber-primary, .btn-cyber-outline { width: auto; } /* En pantallas más grandes toman su tamaño normal */
+}
+
+.btn-cyber-primary { background-color: var(--cyber-amarillo); color: #000000; border: none; }
+.btn-cyber-outline { background-color: transparent; color: var(--texto-principal); border: 1px solid var(--cyber-fucsia); }
+#theme-toggle { padding: 4px 10px; font-size: 0.8rem; width: auto; }
